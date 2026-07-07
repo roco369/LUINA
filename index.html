@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ルイーナ🌙のデジタル講座 | デザイン見本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F1;
+    --dusk:#3A3552;
+    --dusk-deep:#2B2740;
+    --mauve:#C9A6B2;
+    --mauve-deep:#B98999;
+    --sage:#AEC2B4;
+    --gold:#D8BC86;
+    --plum:#463C52;
+    --plum-soft:#8A7E92;
+    --white:#FFFFFF;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--plum);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Shippori Mincho', serif;
+    font-weight:700;
+    color:var(--plum);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+
+  .wave{width:100%;height:50px;display:block;}
+
+  /* ---------- ヘッダー(夜空+月) ---------- */
+  header{
+    position:relative;
+    padding:70px 0 100px;
+    text-align:center;
+    background:linear-gradient(160deg, var(--dusk-deep) 0%, var(--dusk) 55%, var(--mauve-deep) 100%);
+    overflow:hidden;
+  }
+  header::before{
+    content:"";
+    position:absolute;
+    top:14%; right:10%;
+    width:86px;height:86px;
+    background:radial-gradient(circle at 35% 35%, var(--gold), #B99656 70%);
+    border-radius:50%;
+    box-shadow:0 0 40px 6px rgba(216,188,134,.35);
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    top:12%; right:calc(10% + 18px);
+    width:86px;height:86px;
+    background:var(--dusk-deep);
+    border-radius:50%;
+    transform:translateX(20px);
+  }
+  header .stars{
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,.6), transparent),
+      radial-gradient(1.5px 1.5px at 70% 20%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,.4), transparent),
+      radial-gradient(1.5px 1.5px at 85% 55%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1px 1px at 30% 75%, rgba(255,255,255,.4), transparent);
+  }
+  header .inner{position:relative; z-index:1;}
+  header .brand{
+    font-size:2.3rem;
+    letter-spacing:.03em;
+    color:var(--cream);
+  }
+  nav{
+    margin-top:36px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    position:relative; z-index:1;
+  }
+  nav a{
+    font-size:.82rem;
+    text-decoration:none;
+    background:rgba(255,255,255,.12);
+    padding:8px 18px;
+    border-radius:100px;
+    color:var(--cream);
+    border:1px solid rgba(255,255,255,.25);
+    transition:background .15s ease;
+  }
+  nav a:hover{background:rgba(255,255,255,.22);}
+
+  /* ---------- セクション共通 ---------- */
+  section{padding:68px 0;}
+  .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    color:var(--plum-soft);
+    background:var(--sage);
+    padding:4px 14px;
+    border-radius:100px;
+    margin-bottom:14px;
+  }
+  .section-title{
+    font-size:1.7rem;
+    margin:0 0 10px;
+  }
+  .section-lead{
+    color:var(--plum-soft);
+    font-size:.92rem;
+    max-width:560px;
+  }
+
+  /* ---------- 自己紹介 ---------- */
+  .story{
+    background:var(--white);
+    border-radius:22px;
+    padding:44px;
+    box-shadow:0 6px 0 var(--mauve);
+    position:relative;
+  }
+  .story p{
+    margin:0 0 14px;
+    font-size:.94rem;
+  }
+  .story p:last-child{margin-bottom:0;}
+
+  /* ---------- 講座メニュー見出し ---------- */
+  .menu-heading{text-align:center;}
+  .menu-heading .section-lead{margin:0 auto;}
+
+  /* ---------- 注意事項 ---------- */
+  .notice{
+    background:var(--mauve);
+    border-radius:20px;
+    padding:30px 34px;
+    font-size:.88rem;
+    color:#4A2E38;
+  }
+  .notice h3{
+    font-size:1.05rem;
+    margin:0 0 12px;
+    color:#4A2E38;
+  }
+  .notice p{margin:0 0 8px;}
+  .notice p:last-child{margin-bottom:0;}
+
+  /* ---------- 講座一覧(アコーディオン) ---------- */
+  .course-list{margin-top:32px; display:grid; gap:14px;}
+
+  details.course-item{
+    background:var(--white);
+    border-radius:16px;
+    padding:0;
+    box-shadow:0 3px 0 rgba(0,0,0,.05);
+    overflow:hidden;
+  }
+  details.course-item summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px 26px;
+  }
+  details.course-item summary::-webkit-details-marker{display:none;}
+  .course-num{
+    font-family:'Shippori Mincho', serif;
+    font-size:.85rem;
+    color:var(--mauve-deep);
+    flex-shrink:0;
+    width:26px;
+  }
+  .course-title{
+    flex:1;
+    font-size:1.02rem;
+    font-weight:700;
+  }
+  .course-tag{
+    font-size:.7rem;
+    color:var(--plum-soft);
+    background:var(--cream);
+    padding:3px 10px;
+    border-radius:100px;
+    flex-shrink:0;
+  }
+  .arrow{
+    font-size:.8rem;
+    color:var(--plum-soft);
+    transition:transform .2s ease;
+    flex-shrink:0;
+  }
+  details.course-item[open] .arrow{transform:rotate(180deg);}
+
+  .course-body{
+    padding:0 26px 26px 68px;
+    font-size:.86rem;
+    color:var(--plum-soft);
+  }
+  .course-body p{margin:0 0 10px;}
+  .course-body .sub-block{
+    background:var(--cream);
+    border-radius:12px;
+    padding:14px 18px;
+    margin:12px 0;
+    font-size:.84rem;
+  }
+  .course-body .sub-block p{margin:0 0 4px;}
+
+  .price-list{margin-top:14px; display:grid; gap:8px;}
+  .price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+    padding:10px 16px;
+    background:var(--cream);
+    border-radius:10px;
+    flex-wrap:wrap;
+  }
+  .price-row .time{font-weight:700; color:var(--plum);}
+  .price-row .yen{font-weight:700; color:var(--mauve-deep);}
+  .price-row .note{
+    flex-basis:100%;
+    font-size:.78rem;
+    color:var(--plum-soft);
+  }
+  .price-example{
+    margin-top:10px;
+    font-size:.8rem;
+    color:var(--plum-soft);
+    border-left:3px solid var(--sage);
+    padding-left:12px;
+  }
+
+  /* ---------- 申込フォーム ---------- */
+  .form-box{
+    background:var(--white);
+    border-radius:22px;
+    padding:44px;
+    box-shadow:0 6px 0 var(--mauve-deep);
+  }
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;
+    font-size:.8rem;
+    margin-bottom:6px;
+    color:var(--plum-soft);
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    border:2px solid var(--cream);
+    background:var(--cream);
+    border-radius:12px;
+    padding:12px 16px;
+    font-family:inherit;
+    font-size:.9rem;
+    color:var(--plum);
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--mauve-deep);
+  }
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .submit-btn{
+    display:inline-block;
+    border:none;
+    background:var(--dusk);
+    color:var(--cream);
+    font-family:'Shippori Mincho', serif;
+    font-size:1.02rem;
+    padding:14px 40px;
+    border-radius:100px;
+    cursor:pointer;
+    box-shadow:0 4px 0 var(--dusk-deep);
+  }
+
+  /* ---------- お申し込みフォーム(リンク型) ---------- */
+  .form-link-card{
+    background:var(--white);
+    border-radius:22px;
+    padding:44px;
+    box-shadow:0 6px 0 var(--mauve-deep);
+    text-align:center;
+  }
+  .form-link-card p{
+    font-size:.9rem;
+    color:var(--plum-soft);
+    margin:0 0 26px;
+  }
+  .form-link-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:var(--dusk);
+    color:var(--cream);
+    font-family:'Shippori Mincho', serif;
+    font-size:1.02rem;
+    padding:14px 40px;
+    border-radius:100px;
+    box-shadow:0 4px 0 var(--dusk-deep);
+  }
+  .form-link-note{
+    margin-top:16px;
+    font-size:.76rem;
+    color:var(--plum-soft);
+  }
+
+  /* ---------- お支払いについて(詳細) ---------- */
+  .pay-block{
+    background:var(--white);
+    border-radius:20px;
+    padding:34px 38px;
+    margin-bottom:16px;
+    box-shadow:0 4px 0 rgba(0,0,0,.05);
+  }
+  .pay-block h3{
+    font-size:1.02rem;
+    margin:0 0 12px;
+  }
+  .pay-block p{
+    font-size:.88rem;
+    color:var(--plum-soft);
+    margin:0 0 8px;
+  }
+  .pay-block ul{
+    margin:10px 0 0;
+    padding-left:1.2em;
+    font-size:.86rem;
+    color:var(--plum-soft);
+  }
+  .pay-block li{margin-bottom:6px;}
+  .bank-box{
+    background:var(--cream);
+    border-radius:14px;
+    padding:18px 22px;
+    margin-top:14px;
+    font-size:.88rem;
+  }
+  .bank-box p{margin:0 0 4px; color:var(--plum);}
+
+  /* ---------- 支払い方法 ---------- */
+  .payment-list{display:flex; gap:16px; flex-wrap:wrap; margin-top:26px;}
+  .payment-chip{
+    background:var(--white);
+    border-radius:14px;
+    padding:15px 20px;
+    font-size:.85rem;
+    box-shadow:0 3px 0 var(--sage);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .payment-chip .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
+
+  /* ---------- フッター / SNS ---------- */
+  footer{
+    text-align:center;
+    padding:60px 0 50px;
+    background:linear-gradient(180deg, transparent, var(--dusk) 160%);
+  }
+  .sns{display:flex; justify-content:center; gap:16px; margin:20px 0 28px;}
+  .sns a{
+    width:44px;height:44px;
+    border-radius:50%;
+    background:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    font-size:1.15rem;
+    box-shadow:0 3px 0 rgba(0,0,0,.1);
+  }
+  footer .copyright{font-size:.72rem; color:var(--plum-soft);}
+
+  @media (max-width:520px){
+    header .brand{font-size:1.7rem;}
+    .story, .form-box{padding:26px;}
+    .course-body{padding:0 18px 22px 20px;}
+    .field-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="stars"></div>
+  <div class="wrap inner">
+    <h1 class="brand">ルイーナ🌙のデジタル講座</h1>
+    <nav>
+      <a href="#story">わたしについて</a>
+      <a href="#menu">講座メニュー</a>
+      <a href="#form">お申し込み</a>
+      <a href="#payment">お支払い</a>
+      <a href="#sns">SNS</a>
+    </nav>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" style="position:absolute; bottom:-1px; left:0;">
+    <path d="M0,25 C150,50 350,0 600,25 C850,50 1050,0 1200,25 L1200,50 L0,50 Z" fill="#FBF7F1"/>
+  </svg>
+</header>
+
+<!-- わたしについて -->
+<section id="story">
+  <div class="wrap">
+    <span class="eyebrow">ABOUT ME</span>
+    <h2 class="section-title">わたしについて</h2>
+    <div class="story" style="margin-top:26px;">
+      <p>事務員歴が8年くらいあります。</p>
+      <p>高校生の頃バンドをしていました。</p>
+      <p>一時期オンラインゲームにハマり、パソコンに詳しくなりました。</p>
+      <p>AIで画像を作るのがたのしくて仕方ありません。</p>
+      <p>AIでゲーム作れるのでは...?と好奇心から実際に作って遊びました。</p>
+      <p>これらを趣味でやっていたら、仲間から<br>「それ価値あるよ。お金払うから教えてほしい。」<br>とありがたいお言葉をいただきました。</p>
+      <p>そんなこんなで趣味の集大成がお役に立てると気づき、形にしました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 講座メニュー見出し -->
+<section id="menu">
+  <div class="wrap menu-heading">
+    <span class="eyebrow">LESSON MENU</span>
+    <h2 class="section-title">講座メニュー</h2>
+    <p class="section-lead">初心者さんも安心。一つひとつ、ゆっくり進めていく講座です。</p>
+  </div>
+</section>
+
+<!-- 注意事項 -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="notice">
+      <h3>ご受講にあたっての注意事項</h3>
+      <p>初心者向けの講座です。</p>
+      <p>(あまりに詳しい内容はお伝えできかねます。ご了承ください。)</p>
+      <p>全て始めに5分〜10分くらい自己紹介とコミュニケーションの時間をとってからスタートします🌸</p>
+    </div>
+  </div>
+</section>
+
+<!-- 講座一覧(アコーディオン) -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="course-list">
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">01</span>
+          <span class="course-title">AIの使い方(チャットGPT・Gemini・Claude)</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>3つのAIそれぞれにできることや特徴を、資料を使って説明。そのあと時間の許す限り、実際に使いながらこちらで画面共有し学びます。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間</span><span class="yen">2,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">02</span>
+          <span class="course-title">動画編集のやり方</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>スマホ・PCどちらでも大丈夫です。全て無料のアプリ・ソフトを使用。</p>
+          <div class="sub-block">
+            <p>・スマホ(Android)→使うアプリ:VLLO(ブロ)</p>
+            <p>・スマホ(iPhone)→使うアプリ:premiere(プレミア)</p>
+            <p>・PC→使うソフト:VideoProc Vlogger(ビデオプロック ヴィロガー)</p>
+          </div>
+          <p>&lt;スマホ&gt; 可能であれば予めアプリをインストールしていただき、当日は資料を使ってご説明。</p>
+          <p>&lt;PC&gt; 可能であれば予めソフトをインストールしていただき、当日はこちらで画面共有しながらご説明。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間30分</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間30分</span><span class="yen">4,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">03</span>
+          <span class="course-title">YouTubeの始め方(動画アップロードのやり方)</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>スマホ・PCどちらでも大丈夫です。※資料はスマホ版のみです。</p>
+          <p>&lt;スマホ&gt; 当日は資料を使ってご説明。</p>
+          <p>&lt;PC&gt; 当日はこちらで画面共有しながらご説明。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間</span><span class="yen">2,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+            <div class="price-row"><span class="time">30分</span><span class="yen">1,000円</span><span class="note">単体では利用不可。他のコンテンツと組み合わせて使う場合のみお使いいただけます。アーカイブ+資料のお渡しは他のコンテンツの選択に沿い、有無で別途料金はかかりません。</span></div>
+          </div>
+          <div class="price-example">例:動画編集のやり方(アーカイブ+資料 有)+YouTubeの始め方 30分<br>→ 1時間30分(4,000円)+30分(1,000円)= 2時間で5,000円</div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">04</span>
+          <span class="course-title">音声録音・編集のやり方</span>
+          <span class="course-tag">PCのみ</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>使うソフト:Audacity(オーダシティ)</p>
+          <p>歌ってみたをやってみたい/録音した声にエコーをかけたい/ノイズを消したい/ボイスレコーダーに限界を感じている。こんな方にぴったりです。</p>
+          <p>当日はこちらで実際にソフトを使い、画面共有しながらご説明。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間</span><span class="yen">2,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">05</span>
+          <span class="course-title">宅録レコーディングのやり方</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>みんな家でどうやって録音してるの?必要な機材は?おすすめの機材を知りたい!防音対策も教えて欲しい!という疑問がわかる内容です。</p>
+          <p>単体では利用不可。【音声録音・編集のやり方】に組み合わせて使う場合のみお使いいただけます。アーカイブ+資料のお渡しは【音声録音・編集のやり方】の選択に沿い、有無で別途料金はかかりません。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">30分</span><span class="yen">1,000円</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">06</span>
+          <span class="course-title">AIで作曲</span>
+          <span class="course-tag">使うソフト:suno</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>スマホ・PCどちらもOK。当日はこちらで実際にPC版ソフトを使い、画面共有しながらご説明。</p>
+          <p>作曲ソフトでどこまでできるのか?自分の作りたい曲をどうやってAIで形にするのか?気を付けておくこと、上手く作るコツ、ダウンロード方法などをお伝えします。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間</span><span class="yen">2,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">07</span>
+          <span class="course-title">Instagramの使い方</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>アカウント作成、プロフィールの編集、セキュリティ設定、プロアカウント設定、いろんな投稿の仕方と違いなどを資料を使いながらご説明。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間</span><span class="yen">2,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">08</span>
+          <span class="course-title">Zoomの使い方</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>有料プランでこれからホストとして開催していく人向け☀</p>
+          <p>基本的な使い方、アーカイブのおすすめ共有方法、PCとスマホでできることの違いなどを資料を使いながらご説明。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間30分</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間30分</span><span class="yen">4,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="course-item">
+        <summary>
+          <span class="course-num">09</span>
+          <span class="course-title">LINE公式アカウントの作成方法・使い方</span>
+          <span class="arrow">▾</span>
+        </summary>
+        <div class="course-body">
+          <p>友達追加方法、登録時のメッセージの編集、画像・クーポン・リンクをつけて送る、個別でメッセージをやり取りするなどを資料を使いながらご説明。</p>
+          <div class="price-list">
+            <div class="price-row"><span class="time">1時間</span><span class="yen">2,000円</span><span class="note">アーカイブ+資料のお渡し無し</span></div>
+            <div class="price-row"><span class="time">1時間</span><span class="yen">3,000円</span><span class="note">アーカイブ+資料のお渡し有</span></div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- 申込フォーム -->
+<section id="form">
+  <div class="wrap">
+    <span class="eyebrow">APPLICATION</span>
+    <h2 class="section-title">お申し込みフォーム</h2>
+    <p class="section-lead">下記のフォームより、ご希望の講座を選んでお申し込みください。</p>
+
+    <div class="form-link-card" style="margin-top:30px;">
+      <p>ボタンを押すとお申し込みフォームが開きます</p>
+      <a class="form-link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeEguoponrJq-ejZdL47ch2uwudjttdWdMjXbswrkileiWwjQ/viewform" target="_blank" rel="noopener">お申し込みフォームを開く</a>
+      <div class="form-link-note">※ 別タブでGoogleフォームが開きます</div>
+    </div>
+  </div>
+</section>
+
+<!-- 支払い方法 -->
+<section id="payment">
+  <div class="wrap">
+    <span class="eyebrow">PAYMENT</span>
+    <h2 class="section-title">お支払いについて</h2>
+
+    <div class="pay-block" style="margin-top:30px;">
+      <p>講座のお支払いは、銀行振込またはPayPay送金にてお願いいたします。</p>
+      <p>お申し込み内容を確認後、お支払い先をご案内いたします。</p>
+      <ul>
+        <li>お支払いは事前決済となります。</li>
+        <li>振込手数料はご負担をお願いいたします。(銀行振込の場合)</li>
+        <li>お支払い確認後、ご予約確定となります。</li>
+      </ul>
+      <div class="bank-box">
+        <p>&lt;振込先&gt;</p>
+        <p>三井住友銀行　難波支店(支店番号:111)</p>
+        <p>口座番号:8009911</p>
+        <p>井上知郁(イノウエチカ)</p>
+        <p style="margin-top:8px; font-size:.8rem;">※PayPayの場合は支払いリンクをお送りします。</p>
+      </div>
+    </div>
+
+    <div class="pay-block">
+      <h3>アーカイブ・資料について</h3>
+      <p>アーカイブ動画・資料付きのメニューと、講座のみのメニューをご用意しております。</p>
+      <p>講座を受講してから「やっぱり復習したい」「資料も手元に置いておきたい」と思われた場合は、講座開催日から1か月以内であれば、後日追加でアーカイブ動画・資料をお申し込みいただけます。</p>
+      <p>ご希望の際は、お気軽にご連絡ください。</p>
+    </div>
+
+    <div class="pay-block">
+      <h3>キャンセルについて</h3>
+      <p>ご都合が悪くなった場合は、できるだけお早めにご連絡ください。</p>
+      <p>お支払い後のお客様都合による返金は原則として承っておりません。</p>
+      <p>ただし、日程変更が可能な場合は振替にて対応いたしますので、お気軽にご相談ください。</p>
+      <p>主催者都合により開催ができなくなった場合は、日程変更または全額返金にて対応いたします。</p>
+    </div>
+
+    <div class="pay-block">
+      <h3>安心してご参加いただくために</h3>
+      <p>講座内容の録音・録画・無断転載・配布はご遠慮ください。</p>
+      <p>安心して学んでいただける場づくりへのご協力をお願いいたします。</p>
+      <p>ご自身に合ったスタイルで、安心して学んでいただけたら嬉しいです🌙</p>
+    </div>
+  </div>
+</section>
+
+<!-- SNS -->
+<footer id="sns">
+  <div class="wrap">
+    <p class="section-lead" style="margin:0 auto; color:#D9D2E0;">最新情報はSNSでも発信しています</p>
+    <div class="sns">
+      <a href="#" title="X">𝕏</a>
+      <a href="#" title="Instagram">📷</a>
+      <a href="#" title="LINE">💬</a>
+    </div>
+    <p class="copyright" style="color:#B7ADC4;">© 2026 ルイーナ. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
