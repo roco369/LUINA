@@ -8,15 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#FBF7F1;
-    --dusk:#3A3552;
-    --dusk-deep:#2B2740;
-    --mauve:#C9A6B2;
-    --mauve-deep:#B98999;
-    --sage:#AEC2B4;
+    --cream:#FCF6F9;
+    --dusk:#40365A;
+    --dusk-deep:#2E2740;
+    --mauve:#D3ACC2;
+    --mauve-deep:#C08DA9;
+    --sage:#DAC9E2;
     --gold:#D8BC86;
-    --plum:#463C52;
-    --plum-soft:#8A7E92;
+    --plum:#4A3C52;
+    --plum-soft:#8F7F97;
     --white:#FFFFFF;
   }
 
@@ -375,14 +375,15 @@
   }
   .sns{display:flex; justify-content:center; gap:16px; margin:20px 0 28px;}
   .sns a{
-    width:44px;height:44px;
+    width:46px;height:46px;
     border-radius:50%;
     background:var(--white);
     display:flex; align-items:center; justify-content:center;
     text-decoration:none;
-    font-size:1.15rem;
     box-shadow:0 3px 0 rgba(0,0,0,.1);
+    overflow:hidden;
   }
+  .sns a svg{width:24px;height:24px;}
   footer .copyright{font-size:.72rem; color:var(--plum-soft);}
 
   @media (max-width:520px){
@@ -634,18 +635,26 @@
 
     <div class="pay-block" style="margin-top:30px;">
       <p>講座のお支払いは、銀行振込またはPayPay送金にてお願いいたします。</p>
-      <p>お申し込み内容を確認後、お支払い先をご案内いたします。</p>
+      <p>お申し込み後は、公式LINEへご登録のうえ、「申し込みました」とメッセージをお送りください🌙</p>
+      <p>※日程のご案内やご連絡は、公式LINEにて行います。</p>
+
+      <h3 style="margin-top:22px;">お支払いについて</h3>
       <ul>
-        <li>お支払いは事前決済となります。</li>
-        <li>振込手数料はご負担をお願いいたします。(銀行振込の場合)</li>
+        <li>事前決済となります。</li>
+        <li>銀行振込の場合、振込手数料はご負担をお願いいたします。</li>
         <li>お支払い確認後、ご予約確定となります。</li>
       </ul>
+
       <div class="bank-box">
-        <p>&lt;振込先&gt;</p>
+        <p style="font-weight:700;">【銀行振込】</p>
         <p>三井住友銀行　難波支店(支店番号:111)</p>
         <p>口座番号:8009911</p>
-        <p>井上知郁(イノウエチカ)</p>
-        <p style="margin-top:8px; font-size:.8rem;">※PayPayの場合は支払いリンクをお送りします。</p>
+        <p>口座名義:井上 知郁(イノウエ チカ)</p>
+      </div>
+
+      <div class="bank-box" style="margin-top:12px;">
+        <p style="font-weight:700;">【PayPay送金】</p>
+        <p>PayPayをご希望の場合は、公式LINEにてお支払いリンクをお送りいたします。</p>
       </div>
     </div>
 
@@ -678,9 +687,15 @@
   <div class="wrap">
     <p class="section-lead" style="margin:0 auto; color:#D9D2E0;">最新情報はSNSでも発信しています</p>
     <div class="sns">
-      <a href="#" title="X">𝕏</a>
-      <a href="#" title="Instagram">📷</a>
-      <a href="#" title="LINE">💬</a>
+      <a href="https://lin.ee/shZGJA1" target="_blank" rel="noopener" title="公式LINE">
+        <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#06C755"/><path fill="#fff" d="M12 5.5c-3.9 0-7 2.5-7 5.6 0 2.8 2.5 5.1 5.9 5.5.2 0 .5.2.6.4.1.2 0 .5 0 .7l-.1.6c0 .2-.1.6.5.3.6-.2 3.1-1.8 4.2-3.1 1.2-1.3 1.9-2.6 1.9-4.4 0-3.1-3.1-5.6-7-5.6zm-3.9 4.4h.7v2.7h1.4v.7H8.1V9.9zm2.7 0h.7v3.4h-.7V9.9zm1.5 0h.7l1.3 2v-2h.7v3.4h-.7l-1.3-2v2h-.7V9.9zm3.3 0h2v.7h-1.3v.6h1.2v.7h-1.2v.7h1.3v.7h-2V9.9z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/tsuki_luina?igsh=MWQydWcwNzVobnA0cw%3D%3D&utm_source=qr" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDD55"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#5851DB"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#igGrad)"/><rect x="6" y="6" width="12" height="12" rx="3.5" fill="none" stroke="#fff" stroke-width="1.4"/><circle cx="12" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.4"/><circle cx="16" cy="8" r="0.9" fill="#fff"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@%E6%9C%88%E3%81%AE%E5%85%89%E3%83%AB%E3%82%A4%E3%83%BC%E3%83%8A" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24"><rect x="1" y="4.5" width="22" height="15" rx="4" fill="#FF0000"/><path fill="#fff" d="M10 8.6l6 3.4-6 3.4z"/></svg>
+      </a>
     </div>
     <p class="copyright" style="color:#B7ADC4;">© 2026 ルイーナ. All rights reserved.</p>
   </div>
